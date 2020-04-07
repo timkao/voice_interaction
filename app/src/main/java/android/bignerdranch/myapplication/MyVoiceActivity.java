@@ -37,11 +37,12 @@ public class MyVoiceActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         if (isVoiceInteraction()) {
-            Toast.makeText(getApplicationContext(), "inside voice interaction", Toast.LENGTH_SHORT).show();
             Log.i("@tim", "inside voice interaction");
             String ttsPrompt = "are you sure?";
             String visualPrompt = "are you sure?";
             getVoiceInteractor().submitRequest(new Confirm(ttsPrompt, visualPrompt));
+        } else {
+            finish();
         }
     }
 
